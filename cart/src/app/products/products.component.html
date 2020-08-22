@@ -1,0 +1,80 @@
+<div class="main">
+    <div class="cart-container">
+        <div class="cart-intro-content">
+            <img src="https://i.ibb.co/K9Kw5TS/People-keeping-healthy-diet-Man-and-woman-packing-paper-bag-with-fresh-fruit-and-vegetables-Vector-i.jpg"
+                alt="People-keeping-healthy-diet-Man-and-woman-packing-paper-bag-with-fresh-fruit-and-vegetables-"
+                border="0" class="responsive">
+            <h2>My Cart</h2>
+            <p>Deliver today at 2pm</p>
+            <div class="modal-container">
+                <!-- Button to Open the Modal -->
+                <button type="button" class="btn btn-primary add-btn" data-toggle="modal" data-target="#myModal">
+                    Add Item to Cart
+                </button>
+
+                <!-- The Modal -->
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Add Item</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <img src="https://i.ibb.co/hV0RCCs/Man-shopping-in-supermarket-Customer-wheeling-cart-along-aisles-flat-vector-illustration-Grocery-sto.jpg"
+                                    alt="Man-shopping-in-supermarket-Customer-wheeling-cart-along-aisles-flat-vector-illustration-Grocery-sto"
+                                    class="responsive">
+                                    <div class="modal-form">
+                                        <form class="new-item" #cartForm="ngForm" (submit)="submitItem(cartForm.value)">
+                                            <div class="label">
+                                                <label for="product">Product</label>
+                                                <input type="text" name="product" ngModel>
+                                            </div>
+                                            <div class="label">
+                                                <label for="price">Price</label>
+                                                <input type="number" name="price" ngModel>
+                                            </div>
+                                            <div class="label">
+                                                <label for="quantity">Quantity</label>
+                                                <input type="number" name="quantity" ngModel>
+                                            </div>
+                                            <button class="add-btn" type="submit">Submit</button>
+                                        </form>
+                                    </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th class="nums">Price</th>
+                    <th class="nums">Quantity</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let item of cartItems">
+                <tr>
+                    <td>{{ item.product }}</td>
+                    <td class="nums">$ {{ item.price }}</td>
+                    <td class="nums">x {{ item.quantity }}</td>
+                    <td>
+                        <div class="delete-btn" (click)="deleteCartItem(item.id)">
+                            <span class="material-icons">delete_outline</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

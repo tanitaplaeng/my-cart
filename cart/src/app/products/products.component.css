@@ -1,0 +1,74 @@
+.main,
+.cart-intro-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h2 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    color: darkgray;
+}
+
+.nums {
+    text-align: center;
+}
+
+tbody:hover {
+    background: #b2d9a7;
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
+}
+
+.modal-container {
+    margin: 25px 0;
+}
+
+.add-btn {
+    background-color: #b2d9a7;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 25px;
+    color: white;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    width: 100%;
+    }
+
+.add-btn:hover {
+    background-color: #7fbd7b;
+}
+
+.delete-btn { 
+    cursor: pointer;
+}
+
+.modal-form { 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.label { 
+    display: flex;
+    justify-content: space-between;
+    width: 325px;
+    margin: 10px 0;
+}
+
+@media only screen and (min-width: 922px) {
+    .main {
+    background-color: white;
+    border-radius: 15px;
+    margin: 50px auto;
+    width: 750px;
+    }
+}

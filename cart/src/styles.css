@@ -1,0 +1,9 @@
+body {
+  font-family: "Quicksand", sans-serif;
+}
+
+@media only screen and (min-width: 922px) {
+  body {
+    background-color: #b2d9a7;
+  }
+}
