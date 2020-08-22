@@ -13,7 +13,10 @@ export class CartService {
   constructor(private http: HttpClient) { }
 
   getAllCartItems(): Observable<any> {
-    return this.http.get(this.cartItemsApiEndpoint);
+    return this.http.get("http://localhost:3000/cart-items",
+    { responseType: "json"}
+);
+    // return this.http.get(this.cartItemsApiEndpoint);
   }
 
   deleteItem(id: number): Observable<any> {
