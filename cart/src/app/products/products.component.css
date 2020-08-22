@@ -51,6 +51,21 @@ tbody:hover {
     cursor: pointer;
 }
 
+/* .submit-btn {
+    background-color: #6CAFF3;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 25px;
+    color: white;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #0583F2;
+} */
+
 .modal-form { 
     display: flex;
     align-items: center;
