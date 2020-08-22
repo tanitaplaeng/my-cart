@@ -29,7 +29,6 @@ export class ProductsComponent implements OnInit {
   }
 
   deleteCartItem(id): void { 
-    console.log(id);
     this.cartService.deleteItem(id).subscribe(() => { 
       alert(`Item deleted!`);
       this.cartService.getAllCartItems().subscribe(c => {
