@@ -16,10 +16,6 @@ const cart = [
     {id: 11, product: 'Cherries', price: 3, quantity: 4},
 ];
 
-cartItems.get('/', (req, res) => { 
-    res.send('You hit the cart API (~ï¿£â–½ï¿£)~ Go to /cart-items to view items! (âœ¿ â™¥â€¿â™¥)');
-});
-
 // getting all cart items with query string parameters
 cartItems.get('/cart-items', (req, res) => {
     let cartItems = cart;
@@ -59,7 +55,7 @@ cartItems.post('/cart-items', (req, res) => {
         quantity: req.body.quantity
     };
     cart.push(newCartItem);
-    res.status(201).send(`${req.body.product} added to cart! (ï¾‰â—•ãƒ®â—•)ï¾‰*:ï½¥ï¾Ÿâœ§ `);
+    res.status(201).send(newCartItem);
 });
 
 // update cart item in array with the given ID
@@ -72,7 +68,7 @@ cartItems.put('/cart-items/:id', (req, res) => {
         price: req.body.price, 
         quantity: req.body.quantity 
     };
-    res.send(`Updated ${req.body.product}! (â–°Ë˜â—¡Ë˜â–°)`);
+    res.send(cartItem);
 });
 
 // deleting cart item from array
@@ -81,7 +77,7 @@ cartItems.delete('/cart-items/:id', (req, res) => {
     const cartIndex = cart.indexOf(cartItem);
     console.log(cartIndex);
     cart.splice(cartIndex, 1);
-    res.send(`Deleted ${req.body.product} from cart! (â—¡ï¸¿â—¡âœ¿)`);
+    res.send(cartItem);
 });
 
 module.exports = cartItems;

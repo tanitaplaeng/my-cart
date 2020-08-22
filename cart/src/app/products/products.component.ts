@@ -30,19 +30,19 @@ export class ProductsComponent implements OnInit {
 
   deleteCartItem(id): void { 
     console.log(id);
-    // this.cartService.deleteItem(id).subscribe(() => { 
-    //   alert(`You deleted an item!`);
-    //   this.cartService.getAllCartItems().subscribe(c => {
-    //     this.cartItems = c
-    //   });
-    // }, (error: Error) => {
-    //   alert(error.message);
-    // });
-    this.cartService.deleteItem(id).subscribe(() => {
+    this.cartService.deleteItem(id).subscribe(() => { 
+      alert(`Item deleted!`);
       this.cartService.getAllCartItems().subscribe(c => {
-        this.cartItems = c;
+        this.cartItems = c
       });
+    }, (error: Error) => {
+      alert(error.message);
     });
+    // this.cartService.deleteItem(id).subscribe(() => {
+    //   this.cartService.getAllCartItems().subscribe(c => {
+    //     this.cartItems = c;
+    //   });
+    // });
   }
   
   submitItem(item){
