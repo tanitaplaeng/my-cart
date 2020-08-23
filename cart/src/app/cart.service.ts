@@ -30,4 +30,8 @@ export class CartService {
     // editItem(quantity): Observable<any>{
   //   return this.http.put(this.endPoint, quantity);
   // }
+
+  updateItem(item: Item): Observable<any> {
+    return this.http.put(`${this.cartItemsApiEndpoint}/${item.id}`, item);
+  }
 }

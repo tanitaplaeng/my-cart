@@ -10,6 +10,9 @@ import { Item } from "../item";
 export class ProductsComponent implements OnInit {
 
   cartItems: Item[];
+  selectedProduct: Item;
+  editItem: boolean;
+
 
   constructor(private cartService: CartService) { }
 
@@ -46,10 +49,29 @@ export class ProductsComponent implements OnInit {
   
   submitItem(item){
     this.cartService.addItem(item).subscribe(data => {
+      alert(`Item added!`);
       this.cartService.getAllCartItems().subscribe(c => {
         this.cartItems = c;
       });
     });
+  }
+
+  itemClicked(item: Item) {
+    this.editItem = true;
+    this.selectedProduct = item;
+  }
+
+  updateFormSubmitted(e) {
+    console.log(this.selectedProduct);
+    this.cartService.updateItem(this.selectedProduct).subscribe(data => {
+      alert('Item updated!');
+      this.cartService.getAllCartItems().subscribe(
+        this.onGetAllItemsSuccess.bind(this),
+        this.onGetAllItemsError.bind(this)
+      );
+    }, (error: Error) => {
+      alert(error.message);
+    })
   }
 
 }

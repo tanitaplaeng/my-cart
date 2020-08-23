@@ -12,7 +12,7 @@
                     Add Item to Cart
                 </button>
 
-                <!-- The Modal -->
+                <!-- Add Item to Cart Modal -->
                 <div class="modal fade" id="myModal">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -63,7 +63,7 @@
                 </tr>
             </thead>
             <tbody *ngFor="let item of cartItems">
-                <tr>
+                <tr (click)="itemClicked(item)" data-toggle="modal" data-target="#myModal-update">
                     <td>{{ item.product }}</td>
                     <td class="nums">$ {{ item.price }}</td>
                     <td class="nums">x {{ item.quantity }}</td>
@@ -75,6 +75,38 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+
+</div>
+
+<div class="modal-container">
+    <!-- Update Cart Item Modal -->
+    <div class="modal fade" id="myModal-update">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Update</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                        <div class="modal-form">
+                            <form *ngIf="editItem" (submit)="updateFormSubmitted($event)">
+                                <div class="label">
+                                    <label for="price">Price</label>
+                                    <input type="number" [(ngModel)]="selectedProduct.price" [ngModelOptions]="{standalone: true}" />
+                                </div>
+                                <div class="label">
+                                    <label for="quantity">Quantity</label>
+                                    <input type="number" [(ngModel)]="selectedProduct.quantity" [ngModelOptions]="{standalone: true}" />
+                                </div>
+                                <button type="submit" class="add-btn">Submit</button>
+                            </form>
+                        </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>
