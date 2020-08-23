@@ -63,10 +63,10 @@
                 </tr>
             </thead>
             <tbody *ngFor="let item of cartItems">
-                <tr (click)="itemClicked(item)" data-toggle="modal" data-target="#myModal-update">
-                    <td>{{ item.product }}</td>
-                    <td class="nums">$ {{ item.price }}</td>
-                    <td class="nums">x {{ item.quantity }}</td>
+                <tr>
+                    <td (click)="itemClicked(item)" data-toggle="modal" data-target="#myModal-update">{{ item.product }}</td>
+                    <td class="nums" (click)="itemClicked(item)" data-toggle="modal" data-target="#myModal-update">$ {{ item.price }}</td>
+                    <td class="nums" (click)="itemClicked(item)" data-toggle="modal" data-target="#myModal-update">x {{ item.quantity }}</td>
                     <td>
                         <div class="delete-btn" (click)="deleteCartItem(item.id)">
                             <span class="material-icons">delete_outline</span>
